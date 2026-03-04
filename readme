@@ -1,0 +1,115 @@
+This README.md file provides all the necessary instructions for setting up, configuring, and running the Vendhan InfoTech website.
+
+Vendhan InfoTech - Corporate Website
+
+Vendhan InfoTech is a women-led IT powerhouse specializing in Custom Software, AI/ML Solutions, Cloud Digital Transformation, and high-precision BPO services. This repository contains the complete frontend and Node.js backend.
+
+🚀 Features
+
+Modern Responsive Design: Fully optimized for Desktop, Tablet, and Mobile.
+
+Node.js v24 Compatible: Custom routing logic to handle the strictest path-parsing requirements.
+
+Automated Contact Form: Sends emails directly to the administration using Nodemailer and Gmail.
+
+Clean Architecture: Separation of concerns with a dedicated public folder for assets and a robust server.js for logic.
+
+🛠️ Tech Stack
+
+Frontend: HTML5, CSS3 (Modern Grid/Flexbox), JavaScript (ES6+).
+
+Backend: Node.js, Express.js.
+
+Email Service: Nodemailer (configured for Gmail App Passwords).
+
+Environment Management: dotenv.
+
+📁 Project Structure
+code
+Text
+download
+content_copy
+expand_less
+vendhan-website/
+├── server.js              # Node.js Express backend
+├── .env                   # Environment variables (Private)
+├── package.json           # Node dependencies
+├── public/                # Frontend assets
+│   ├── index.html         # Home Page
+│   ├── about.html         # Our Story Page
+│   ├── services.html      # Services Detail Page
+│   ├── contact.html       # Contact Us Page
+│   └── images/            # Logo and site images
+└── node_modules/          # Installed packages
+⚙️ Installation & Setup
+1. Prerequisites
+
+Node.js: Recommended version 18.x, 20.x, or 24.x.
+
+Gmail Account: To send notifications from the contact form.
+
+2. Installation
+
+Open your terminal in the vendhan-website directory and run:
+
+code
+Bash
+download
+content_copy
+expand_less
+npm install express nodemailer dotenv cors
+3. Configure Gmail (App Password)
+
+For security, Gmail requires an App Password rather than your primary password:
+
+Go to your Google Account Settings.
+
+Enable 2-Step Verification.
+
+Search for "App Passwords".
+
+Create a new app password (select 'Mail' and 'Other/Custom Name').
+
+Copy the 16-character code.
+
+4. Set up Environment Variables
+
+Create a file named .env in the root folder and paste the following:
+
+code
+Env
+download
+content_copy
+expand_less
+PORT=3000
+EMAIL_USER=vendhaninfotech@gmail.com
+EMAIL_PASS=xxxx xxxx xxxx xxxx  # Paste your 16-character code here
+RECEIVER_EMAIL=vendhaninfotech@gmail.com
+🏃 Running the Project
+
+To start the local development server, run:
+
+code
+Bash
+download
+content_copy
+expand_less
+node server.js
+
+Once started, access the site at:
+
+Home: http://localhost:3000
+
+Contact: http://localhost:3000/contact.html
+
+📝 Important Notes
+
+Node.js v24 Compatibility: The server.js uses a middleware-based fallback (app.use) for the catch-all route. This is specifically implemented to prevent PathError issues common in Node v24's strict routing library.
+
+Form Fields: The contact form has been updated to remove the "Company Name" field and utilize a text box for the "Subject" field to allow users more flexibility.
+
+Images: Ensure all images (especially logo.png) are placed inside the public/images/ directory for them to load correctly across all pages.
+
+🛡️ License
+
+© 2025 Vendhan InfoTech. All Rights Reserved.
