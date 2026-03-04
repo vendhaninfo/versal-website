@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendhan InfoTech | Innovation in Technology</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        :root { --bg-off-white: #f5f3eb; --bg-dark-green: #0a1a0a; --text-white: #ffffff; --text-dark: #1a1a1a; --accent-brown: #221310; --accent-gold: #d4af37; }
+        body { margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: var(--bg-off-white); color: var(--text-dark); line-height: 1.6; }
+
+        /* Navigation (Updated Colors) */
+        nav { background-color: #CFCBC2; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .logo { color: var(--bg-dark-green); font-weight: bold; font-size: 24px; text-decoration: none; display: flex; align-items: center; }
+        .nav-logo { height: 50px; width: auto; margin-right: 15px; object-fit: contain; transition: transform 0.3s ease; }
+        .logo:hover .nav-logo { transform: scale(1.05); }
+        .nav-links a { color: var(--bg-dark-green); font-weight: 700; text-decoration: none; margin-left: 30px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        /* Hero & Sections */
+        .hero { height: 85vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=2070') center/cover; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; color: var(--text-white); }
+        .hero h1 { font-size: clamp(40px, 8vw, 80px); margin: 0; font-weight: 400; }
+        .hero h2 { font-size: clamp(20px, 4vw, 32px); font-weight: 300; margin: 10px 0; }
+        .hero p { max-width: 600px; font-size: 18px; }
+        .section-welcome { padding: 80px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; }
+        .section-welcome h2 { grid-column: 1 / -1; font-size: 36px; margin-bottom: 20px; }
+        .btn { display: inline-block; background-color: var(--accent-brown); color: white; padding: 15px 35px; text-decoration: none; border-radius: 30px; margin-top: 20px; font-size: 14px; transition: transform 0.2s; }
+        .btn:hover { transform: scale(1.05); }
+        .banner-img { width: 100%; height: 450px; object-fit: cover; display: block; }
+
+        /* Services & Vision */
+        .section-services { background-color: var(--bg-dark-green); color: var(--text-white); padding: 100px 10%; }
+        .section-services h3 { font-size: 18px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; }
+        .services-list { font-size: clamp(32px, 6vw, 64px); line-height: 1.1; font-weight: 500; margin-bottom: 40px; }
+        .services-list span { display: block; margin-bottom: 10px; }
+        .services-list .more { opacity: 0.3; }
+        .btn-light { background-color: white; color: black; }
+        .section-vision { padding: 100px 10%; text-align: center; background-color: white; }
+        .vision-box { background-color: #f9f9f9; padding: 80px 10%; max-width: 900px; margin: 0 auto; border-radius: 8px; }
+        .vision-box h4 { font-size: clamp(20px, 3vw, 28px); font-weight: 400; line-height: 1.4; margin-bottom: 30px; font-style: italic; }
+
+        /* Footer */
+        footer { padding: 80px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; background-color: var(--bg-off-white); border-top: 1px solid #ddd; }
+        .footer-logo { font-size: 32px; font-weight: 400; text-align: right; }
+        .footer-info p { margin: 5px 0; }
+        .footer-info a { color: var(--text-dark); text-decoration: none; }
+        .footer-info a:hover { text-decoration: underline; }
+        .social-links a { display: block; color: black; text-decoration: none; margin-bottom: 8px; font-weight: 500; }
+        .social-links a:hover { opacity: 0.6; }
+        .copyright { margin-top: 50px; font-size: 14px; grid-column: 1 / -1; border-top: 1px solid #ccc; padding-top: 20px; text-align: center; }
+
+        @media (max-width: 768px) { .footer-logo { text-align: left; } nav { padding: 15px 20px; } .nav-links a { margin-left: 15px; font-size: 12px; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Vendhan InfoTech Logo" class="nav-logo">
+            Vendhan InfoTech
+        </a>
+        <div class="nav-links">
+            <a href="index.html" style="border-bottom: 2px solid #0a1a0a;">Home</a>
+            <a href="about.html">Our Story</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Vendhan InfoTech</h1>
+        <h2>Innovation in Technology</h2>
+        <p>A women-led IT powerhouse committed to engineering a brighter digital future through cutting-edge AI, cloud solutions, and bespoke software development.</p>
+        <a href="about.html" class="btn">Explore Our Story</a>
+    </header>
+
+    <section id="welcome" class="section-welcome">
+        <h2>Welcome to Vendhan InfoTech</h2>
+        <div>
+            <p>Founded in 2024, Vendhan InfoTech was born from a simple yet powerful idea: to build a technology company where innovation, excellence, and inclusivity are not just ideals, but the very fabric of our operations. Based in Oddanchatram, Tamil Nadu, we provide expert technology counsel across a wide spectrum of practice areas.</p>
+            <a href="contact.html" class="btn">Schedule a Consult</a>
+        </div>
+        <div>
+            <p>We combine decades of experience with a deep understanding of modern digital ecosystems. Our team of seasoned trial-blazing engineers boasts a proven track record of success in delivering bespoke solutions that are not only intelligent and efficient but also sustainable and inclusive.</p>
+        </div>
+    </section>
+
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2069" alt="Modern Technology Hub" class="banner-img">
+
+    <section id="services" class="section-services">
+        <h3>What We Offer</h3>
+        <div class="services-list">
+            <span>Custom Software Development</span>
+            <span>AI & Machine Learning</span>
+            <span>Digital Transformation</span>
+            <span>Cloud Solutions</span>
+            <span class="more">+And More</span>
+        </div>
+        <a href="services.html" class="btn btn-light">View Full Details</a>
+    </section>
+
+    <section class="section-vision">
+        <h3>Our Vision</h3>
+        <div class="vision-box">
+            <h4>"To be a globally recognized leader in technology, known for our engineering excellence, ethical practices, and our instrumental role in building a more inclusive and equitable digital future for all."</h4>
+            <p><strong>— Renuga Periyasamy, Founder & CEO</strong></p>
+        </div>
+    </section>
+
+    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&q=80&w=2069" alt="Collaboration" class="banner-img">
+
+    <footer id="contact">
+        <div class="footer-info">
+            <p><strong>Contact Us</strong></p>
+            <p><a href="mailto:vendhaninfotech@gmail.com">vendhaninfotech@gmail.com</a></p>
+            <p><a href="tel:+919488887887">+91 94888 87887</a></p>
+        </div>
+
+        <div class="footer-info">
+            <p><strong>Location</strong></p>
+            <p>N.S.C. Nagar, Oddanchatram,<br>Dindigul, Tamil Nadu - 624619</p>
+        </div>
+
+        <div class="social-links">
+            <p><strong>Follow Us</strong></p>
+            <a href="https://www.linkedin.com/in/vendhan-infotech-6347a8342/" target="_blank">LinkedIn</a>
+            <a href="https://www.facebook.com/share/1EEXad3BAs/" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/vendhaninfotech/" target="_blank">Instagram</a>
+            <a href="https://x.com/VendhanInfoTech" target="_blank">Twitter / X</a>
+        </div>
+		
+		<p><strong style="font-size: 24px;">Vendhan InfoTech</strong></p>
+     
+
+        <div class="copyright">
+            Vendhan InfoTech © 2025 All Rights Reserved
+        </div>
+    </footer>
+
+</body>
+</html>

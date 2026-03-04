@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Vendhan InfoTech</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        :root { --bg-off-white: #f5f3eb; --bg-dark-green: #0a1a0a; --white: #ffffff; --accent-gold: #d4af37; --text-gray: #555; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        body { margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; background: var(--bg-off-white); color: #1a1a1a; line-height: 1.6; overflow-x: hidden; }
+        
+        /* Navigation (Updated Colors) */
+        nav { background-color: #CFCBC2; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .logo { color: var(--bg-dark-green); font-weight: bold; font-size: 24px; text-decoration: none; display: flex; align-items: center; }
+        .nav-logo { height: 50px; width: auto; margin-right: 15px; object-fit: contain; transition: transform 0.3s ease; }
+        .logo:hover .nav-logo { transform: scale(1.05); }
+        .nav-links a { color: var(--bg-dark-green); font-weight: 700; text-decoration: none; margin-left: 30px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        /* Header */
+        .header { background: linear-gradient(rgba(10, 26, 10, 0.9), rgba(10, 26, 10, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072') center/cover; color: white; padding: 120px 10%; text-align: center; }
+        .header h1 { font-size: clamp(32px, 5vw, 60px); margin: 0; animation: slideUp 0.8s ease-out; }
+        .header p { font-size: 18px; opacity: 0.8; margin-top: 15px; animation: slideUp 1s ease-out both; max-width: 800px; margin-left: auto; margin-right: auto;}
+
+        /* Main Overview Grid (UPDATED FOR 4 CARDS IN A ROW) */
+        .container { max-width: 1300px; margin: 0 auto; padding: 80px 20px 40px; }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        
+        /* Making Cards Clickable Anchors */
+        a.card { text-decoration: none; color: inherit; display: block; background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.05); animation: slideUp 0.8s ease-out both; cursor: pointer; border: 2px solid transparent; }
+        .card-img-wrapper { height: 180px; overflow: hidden; position: relative; }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        a.card:hover { transform: translateY(-15px); box-shadow: 0 30px 60px rgba(0,0,0,0.12); border-color: var(--accent-gold); }
+        a.card:hover .card-img-wrapper img { transform: scale(1.1); }
+        .card-content { padding: 25px; }
+        .card h3 { margin: 0 0 10px; color: var(--bg-dark-green); font-size: 22px; }
+        .card p { color: var(--text-gray); font-size: 14px; margin-bottom: 20px; line-height: 1.5; }
+        .explore-text { color: var(--accent-gold); font-weight: bold; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Detailed Services Sections */
+        .service-detail-section { padding: 80px 20px; border-top: 1px solid #ddd; }
+        .service-detail-section:nth-child(even) { background-color: var(--white); }
+        .service-detail-section:nth-child(odd) { background-color: var(--bg-off-white); }
+        
+        .detail-header { text-align: center; margin-bottom: 60px; }
+        .detail-header h2 { font-size: 36px; color: var(--bg-dark-green); margin: 0 0 15px; }
+        .detail-header p { font-size: 18px; color: var(--text-gray); max-width: 800px; margin: 0 auto; }
+
+        .detail-grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .detail-box { background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.04); border-top: 4px solid var(--accent-gold); transition: 0.3s; }
+        .detail-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .detail-box h3 { font-size: 22px; color: var(--bg-dark-green); margin-top: 0; margin-bottom: 15px; }
+        .detail-box p { color: var(--text-gray); font-size: 15px; line-height: 1.6; margin-bottom: 15px; }
+        
+        /* Custom Gold Bullet Points */
+        .detail-box ul { list-style: none; padding-left: 0; margin: 0; }
+        .detail-box ul li { position: relative; padding-left: 20px; margin-bottom: 10px; color: var(--text-gray); font-size: 14px; }
+        .detail-box ul li::before { content: '■'; color: var(--accent-gold); position: absolute; left: 0; top: 1px; font-size: 12px; }
+
+        /* Info Row (Process & Industries) */
+        .info-row { max-width: 1300px; margin: 0 auto; padding: 80px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; border-top: 1px solid #ddd; }
+        .info-card { background: white; padding: 50px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: center; }
+        .info-card h2 { font-size: 30px; margin-top: 0; margin-bottom: 40px; color: var(--bg-dark-green); }
+
+        .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .step { padding: 10px; transition: 0.3s; }
+        .step:hover { transform: scale(1.05); }
+        .step-num { width: 50px; height: 50px; background: var(--bg-dark-green); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 auto 15px; font-weight: bold; font-size: 20px; box-shadow: 0 0 0 8px rgba(10, 26, 10, 0.05); }
+        .step h3 { font-size: 18px; margin: 0 0 8px; color: var(--bg-dark-green); }
+        .step p { font-size: 13px; color: var(--text-gray); margin: 0; line-height: 1.5; }
+
+        .industry-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .tag { background: var(--white); border: 1px solid #ddd; padding: 12px 25px; border-radius: 50px; font-weight: bold; font-size: 15px; color: var(--bg-dark-green); transition: 0.3s; cursor: default; }
+        .tag:hover { background: var(--bg-dark-green); color: white; border-color: var(--bg-dark-green); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+
+        /* Call to Action */
+        .cta { text-align: center; padding: 100px 10%; background: var(--bg-dark-green); color: white; }
+        .btn { display: inline-block; background: var(--accent-gold); color: var(--bg-dark-green); padding: 20px 50px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 16px; margin-top: 30px; transition: 0.3s; }
+        .btn:hover { background: #fff; transform: translateY(-3px); }
+
+        /* Unified Footer */
+        footer { padding: 60px 10%; border-top: 1px solid #ddd; display: flex; flex-wrap: wrap; justify-content: space-between; background-color: var(--bg-off-white); gap: 20px; }
+        footer div p { margin: 5px 0; font-size: 14px; }
+        
+        /* Responsive Rules for 4-Column Grid */
+        @media (max-width: 1100px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .info-row { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) { 
+            nav { padding: 15px 20px; } 
+            .header { padding: 80px 5%; } 
+            .process-grid { grid-template-columns: 1fr; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Vendhan InfoTech Logo" class="nav-logo">
+            Vendhan InfoTech
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Our Story</a>
+            <a href="services.html" style="border-bottom: 2px solid #0a1a0a;">Services</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="header">
+        <h1>Our Technology Expertise</h1>
+        <p>Architecting the digital foundation and streamlining operations for tomorrow's industry leaders.</p>
+    </div>
+
+    <!-- Quick Navigation Cards (4 in a Row) -->
+    <div class="container">
+        <div class="grid">
+            <a href="#software" class="card">
+                <div class="card-img-wrapper"><img src="images\W1.JPG" alt="Custom Software"></div>
+                <div class="card-content">
+                    <h3>Custom Software</h3>
+                    <p>Bespoke digital ecosystems built to streamline your unique business operations.</p>
+                    <div class="explore-text">Explore Details →</div>
+                </div>
+            </a>
+            <a href="#ai" class="card">
+                <div class="card-img-wrapper"><img src="images\W2.JPG" alt="AI and ML"></div>
+                <div class="card-content">
+                    <h3>AI & ML Solutions</h3>
+                    <p>Turning raw data into actionable intelligence through mathematical modeling.</p>
+                    <div class="explore-text">Explore Details →</div>
+                </div>
+            </a>
+            <a href="#cloud" class="card">
+                <div class="card-img-wrapper"><img src="images\W3.JPG" alt="Digital Transformation"></div>
+                <div class="card-content">
+                    <h3>Cloud & Digital</h3>
+                    <p>Reimagining business models for the digital-first era through strategic integration.</p>
+                    <div class="explore-text">Explore Details →</div>
+                </div>
+            </a>
+            <a href="#bpo" class="card">
+                <div class="card-img-wrapper"><img src="images\W4.JPG" alt="BPO Services"></div>
+                <div class="card-content">
+                    <h3>BPO & Data Entry</h3>
+                    <p>Precision, efficiency, and scalability for your core data and business functions.</p>
+                    <div class="explore-text">Explore Details →</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- DETAILED SECTION 1: Software -->
+    <section id="software" class="service-detail-section">
+        <div class="detail-header">
+            <h2>Custom Software Development</h2>
+            <p>We translate your unique business vision into high-performance, secure, and scalable software solutions. Your ideas, engineered with precision and passion.</p>
+        </div>
+        <div class="detail-grid">
+            <div class="detail-box">
+                <h3>Web Application Development</h3>
+                <p>We build powerful, responsive web applications, from customer-facing portals and e-commerce platforms to complex enterprise resource planning (ERP) systems using modern frameworks.</p>
+            </div>
+            <div class="detail-box">
+                <h3>Mobile Application Development</h3>
+                <p>Engage your users on the go with intuitive and beautiful mobile apps. We develop native iOS and Android applications, as well as cross-platform solutions.</p>
+            </div>
+            <div class="detail-box">
+                <h3>UI/UX Design</h3>
+                <p>Our dedicated UI/UX designers conduct in-depth user research to create wireframes, prototypes, and final designs that are highly functional and user-friendly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILED SECTION 2: AI & ML -->
+    <section id="ai" class="service-detail-section">
+        <div class="detail-header">
+            <h2>AI & Machine Learning</h2>
+            <p>We help you harness the power of artificial intelligence to automate processes, gain predictive insights, and create intelligent products that redefine your industry.</p>
+        </div>
+        <div class="detail-grid">
+            <div class="detail-box">
+                <h3>Custom Model Development</h3>
+                <p>We design and train bespoke machine learning models tailored to your specific data and business objectives. From NLP to computer vision, we build solutions that deliver accurate results.</p>
+            </div>
+            <div class="detail-box">
+                <h3>Predictive Analytics</h3>
+                <p>Go beyond historical reporting. We implement predictive analytics solutions that forecast future trends, customer behavior, and operational demands, giving you data-driven foresight.</p>
+            </div>
+            <div class="detail-box">
+                <h3>Intelligent Automation (RPA)</h3>
+                <p>Liberate your workforce from repetitive manual tasks. We deploy AI-powered Robotic Process Automation to automate data entry, report generation, and inquiries.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILED SECTION 3: Cloud & Digital -->
+    <section id="cloud" class="service-detail-section">
+        <div class="detail-header">
+            <h2>Digital Transformation & Cloud</h2>
+            <p>Unlock the full potential of your business with our end-to-end cloud solutions. We help you modernize legacy systems and build a resilient digital foundation.</p>
+        </div>
+        <div class="detail-grid">
+            <div class="detail-box">
+                <h3>Cloud Migration & Strategy</h3>
+                <p>Unlock scalability and cost-efficiency. We provide end-to-end cloud services, from initial assessment to seamless migration on platforms like AWS, Azure, and Google Cloud.</p>
+                <ul>
+                    <li>Cloud Infrastructure Management</li>
+                    <li>Security & Compliance Solutions</li>
+                    <li>Disaster Recovery & Backup</li>
+                </ul>
+            </div>
+            <div class="detail-box">
+                <h3>Legacy System Modernization</h3>
+                <p>Don't let outdated technology hold you back. We specialize in refactoring and re-architecting legacy applications, transforming them into modern, agile systems.</p>
+            </div>
+            <div class="detail-box">
+                <h3>DevOps & CI/CD</h3>
+                <p>Accelerate your time-to-market and improve software quality. We establish robust DevOps cultures and implement automated pipelines for reliable releases.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILED SECTION 4: BPO & Data -->
+    <section id="bpo" class="service-detail-section">
+        <div class="detail-header">
+            <h2>Business Process Outsourcing (BPO)</h2>
+            <p>Precision, Efficiency, and Scalability for Your Core Business Functions. Currently, Vendhan InfoTech is engaged in several major projects spanning data processing and quality assurance.</p>
+        </div>
+        <div class="detail-grid">
+            <div class="detail-box">
+                <h3>Telephone Directory Data</h3>
+                <p>Identifying record types and extracting structured fields from directory data for enhanced information tagging.</p>
+                <ul>
+                    <li>Classify the type of each loaded record.</li>
+                    <li>Extract relevant fields (Name, Address, etc).</li>
+                    <li>Structure and standardize information.</li>
+                </ul>
+            </div>
+            <div class="detail-box">
+                <h3>Newspaper Content Processing</h3>
+                <p>Digitizing, segmenting, and categorizing newspaper articles, capturing essential metadata and ensuring quality deliverables.</p>
+                <ul>
+                    <li>Segment individual articles from full pages.</li>
+                    <li>Assign categories and capture metadata.</li>
+                    <li>Conduct thorough Quality Audits.</li>
+                </ul>
+            </div>
+            <div class="detail-box">
+                <h3>OCR Text Proofreading</h3>
+                <p>Ensuring the accuracy of OCR (Optical Character Recognition) outputs by correcting errors through meticulous proofreading.</p>
+                <ul>
+                    <li>Character-by-character proofreading.</li>
+                    <li>Correct errors by referencing source images.</li>
+                    <li>Capture missing special characters.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- General Data Entry Sub-section -->
+        <div class="detail-header" style="margin-top: 80px; margin-bottom: 40px;">
+            <h2 style="font-size: 28px;">Data Entry & Support Services</h2>
+        </div>
+        <div class="detail-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div class="detail-box" style="padding: 25px;">
+                <h3 style="font-size: 18px;">Data Processing & Cleansing</h3>
+                <p style="font-size: 14px;">Structuring raw data and correcting inconsistencies to ensure high data quality and usability.</p>
+            </div>
+            <div class="detail-box" style="padding: 25px;">
+                <h3 style="font-size: 18px;">Online/Offline Data Entry</h3>
+                <p style="font-size: 14px;">Accurate data input from web sources, physical documents, scanned images, and PDFs.</p>
+            </div>
+            <div class="detail-box" style="padding: 25px;">
+                <h3 style="font-size: 18px;">Virtual Assistant Services</h3>
+                <p style="font-size: 14px;">Comprehensive administrative support, web research, content moderation, and transcription.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Row (Process & Industries) -->
+    <div class="info-row">
+        <!-- Card 1: Process -->
+        <div class="info-card">
+            <h2>Our Engineering Process</h2>
+            <div class="process-grid">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <h3>Discovery</h3>
+                    <p>Detailed requirement gathering and feasibility analysis.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <h3>Architecture</h3>
+                    <p>Designing scalable systems and intuitive user flows.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <h3>Sprint</h3>
+                    <p>Rapid development with continuous testing cycles.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">04</div>
+                    <h3>Launch</h3>
+                    <p>Deployment and ongoing 24/7 technical monitoring.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Industries -->
+        <div class="info-card">
+            <h2>Industries We Empower</h2>
+            <div class="industry-tags">
+                <span class="tag">Healthcare</span>
+                <span class="tag">FinTech</span>
+                <span class="tag">Logistics</span>
+                <span class="tag">Education</span>
+                <span class="tag">Retail</span>
+                <span class="tag">Manufacturing</span>
+                <span class="tag">E-Commerce</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h2>Ready to build the future?</h2>
+        <p>Let’s collaborate to build technology that moves the needle for your business.</p>
+        <a href="contact.html" class="btn">Start Your Project</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <p><strong>Vendhan InfoTech</strong></p>
+            <p>© 2025 All Rights Reserved</p>
+        </div>
+        <div>
+            <p>vendhaninfotech@gmail.com</p>
+            <p>+91 94888 87887</p>
+        </div>
+    </footer>
+
+</body>
+</html>

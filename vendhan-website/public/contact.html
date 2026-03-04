@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Vendhan InfoTech</title>
+    <style>
+        :root { 
+            --bg-off-white: #f5f3eb; 
+            --bg-dark-green: #0a1a0a; 
+            --white: #ffffff; 
+            --text-dark: #1a1a1a; 
+            --accent-gold: #d4af37;
+        }
+        body { margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; background: var(--bg-off-white); color: var(--text-dark); }
+        
+        /* Navigation (Updated to match Home/Services) */
+        nav { 
+            background-color: #CFCBC2; 
+            padding: 15px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        .logo { 
+            color: var(--bg-dark-green); 
+            font-weight: bold; 
+            font-size: 24px; 
+            text-decoration: none; 
+            display: flex; 
+            align-items: center; 
+        }
+        /* Logo Image Style */
+        .nav-logo { 
+            height: 50px; 
+            width: auto; 
+            margin-right: 15px; 
+            object-fit: contain; 
+        }
+        .nav-links a { 
+            color: var(--bg-dark-green); 
+            font-weight: 700; 
+            text-decoration: none; 
+            margin-left: 30px; 
+            font-size: 14px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        /* Content Styles */
+        .container { max-width: 1200px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; }
+        .info-section h1 { font-size: 48px; margin-bottom: 20px; }
+        .info-item { display: flex; margin-bottom: 30px; align-items: flex-start; }
+        .icon { width: 50px; font-size: 24px; color: var(--bg-dark-green); }
+        .info-text strong { display: block; font-size: 18px; margin-bottom: 5px; }
+
+        .form-card { background: white; padding: 50px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .full { grid-column: span 2; }
+        label { display: block; font-weight: bold; font-size: 14px; margin-bottom: 8px; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; box-sizing: border-box; }
+        .submit-btn { width: 100%; background: var(--bg-dark-green); color: white; padding: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 20px; transition: 0.3s; }
+        .submit-btn:hover { background: #1a3a1a; }
+        .submit-btn:disabled { background: #cccccc; cursor: not-allowed; }
+        
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } nav { padding: 15px 20px; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <!-- Fixed Logo Path -->
+            <img src="images/logo.png" alt="Vendhan InfoTech Logo" class="nav-logo">
+            Vendhan InfoTech
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Our Story</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html" style="border-bottom: 2px solid #0a1a0a;">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="info-section">
+            <h1>Get in Touch</h1>
+            <p>We're here to help. Reach out to us via any of these channels.</p>
+            
+            <div class="info-item">
+                <div class="icon">📍</div>
+                <div class="info-text"><strong>Visit Us</strong>N.S.C. Nagar, Oddanchatram, TN - 624619</div>
+            </div>
+            <div class="info-item">
+                <div class="icon">✉️</div>
+                <div class="info-text"><strong>Email Us</strong>vendhaninfotech@gmail.com</div>
+            </div>
+            <div class="info-item">
+                <div class="icon">📞</div>
+                <div class="info-text"><strong>Call Us</strong>+91 94888 87887</div>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <h2>Send Us a Message</h2>
+            <form class="form-grid" id="contactForm">
+                <div><label>Full Name *</label><input type="text" id="fullName" placeholder="Your Name" required></div>
+                <div><label>Email Address *</label><input type="email" id="email" placeholder="email@example.com" required></div>
+                <div class="full"><label>Phone Number</label><input type="tel" id="phone" placeholder="+91 00000 00000"></div>
+                <div class="full"><label>Subject *</label>
+                    <input type="text" id="subject" placeholder="What is this regarding?" required>
+                </div>
+                <div class="full"><label>Message *</label><textarea id="message" rows="5" placeholder="Tell us about your project..." required></textarea></div>
+                <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "Sending...";
+            btn.disabled = true;
+
+            const data = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert("✅ Success! Your message has been sent to Vendhan InfoTech.");
+                    document.getElementById('contactForm').reset();
+                } else {
+                    alert("❌ Error: " + result.message);
+                }
+            } catch (error) {
+                alert("❌ Connection error. Please make sure your backend server is running.");
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
